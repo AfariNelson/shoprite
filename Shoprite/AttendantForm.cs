@@ -131,7 +131,7 @@ namespace Shoprite
                     string query = "Update AttendantTbl set AttendantName = '" + AttendantName.Text + "', AttendantId = '" + AttendantId.Text +"' , AttendantAge = '" + AttendantAge.Text+ "' , AttendantPass = '" + AttendantPass.Text + "', AttendantPhone= '" + AttendantPhone.Text + "' where AttendantId = '" + AttendantId.Text + "';";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Product Updated Successfully");
+                    MessageBox.Show("Attendant Details Updated Successfully");
                     Con.Close();
                     populate();
 

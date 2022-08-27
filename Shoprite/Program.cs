@@ -16,7 +16,7 @@ namespace Shoprite
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AttendantForm());
+            Application.Run(new Form1());
         }
     }
 }

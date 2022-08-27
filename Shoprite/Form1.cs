@@ -46,5 +46,41 @@ namespace Shoprite
         {
             Application.Exit();
         }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            if (usernametb.Text == "" || passwordtb.Text == "")
+            {
+                MessageBox.Show("Enter the Username and Password");
+            }
+            else
+            {
+                if (RoleCb.SelectedIndex > -1)
+                {
+
+                    if (RoleCb.SelectedItem.ToString() == "ADMIN")
+                    {
+                        if (usernametb.Text == "Admin" && passwordtb.Text == "Admin") ;
+                        {
+                            ProductForm prod = new ProductForm();
+                            prod.Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+
+                    {
+                        MessageBox.Show("Correct Admin Password is Required");
+                    }
+                    }
+                
+
+                else
+                {
+                    MessageBox.Show("Select a Role");
+                }
+                }
+            }
+        }
     }
-}
+
