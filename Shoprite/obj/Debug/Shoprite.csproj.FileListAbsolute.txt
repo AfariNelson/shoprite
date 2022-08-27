@@ -1,0 +1,17 @@
+C:\Users\aferi\source\repos\Shoprite\Shoprite\bin\Debug\Shoprite.exe.config
+C:\Users\aferi\source\repos\Shoprite\Shoprite\bin\Debug\Shoprite.exe
+C:\Users\aferi\source\repos\Shoprite\Shoprite\bin\Debug\Shoprite.pdb
+C:\Users\aferi\source\repos\Shoprite\Shoprite\bin\Debug\Guna.UI.dll
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.csproj.AssemblyReference.cache
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.csproj.SuggestedBindingRedirects.cache
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.Form1.resources
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.Properties.Resources.resources
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.csproj.GenerateResource.cache
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.csproj.CoreCompileInputs.cache
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.csproj.CopyComplete
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.exe
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.pdb
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.Splash.resources
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.ProductForm.resources
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.CATEGORYFORM.resources
+C:\Users\aferi\source\repos\Shoprite\Shoprite\obj\Debug\Shoprite.AttendantForm.resources
