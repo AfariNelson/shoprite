@@ -99,7 +99,30 @@ namespace Shoprite
 
         private void button6_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(ProductId.Text == "")
+                {
+                    MessageBox.Show("Select The Product to delete");
+                }
+                else
+                {
+                    Con.Open();
+                    string query = "Delete from ProductTbl where Prodid=" + ProductId.Text + "";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Product Deleted Successfully");
+                    Con.Close();
+                    populate();
 
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -119,6 +142,34 @@ namespace Shoprite
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ProductId.Text == "" || ProductName.Text == "" || ProductQty.Text == "" || ProductPrice.Text == "" )
+                {
+                    MessageBox.Show("Input New Data");
+                }
+                else
+                {
+                    Con.Open();
+                    string query = "Update ProductTbl set ProdName = '" + ProductName.Text + "', ProdQty = '" + ProductQty.Text + "' ,ProdPrice= '" + ProductPrice.Text + "', ProdCat='" + CatCb.SelectedValue.ToString() + "' where Prodid = '" + ProductId.Text + "';";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Product Updated Successfully");
+                    Con.Close();
+                    populate();
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
