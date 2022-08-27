@@ -27,6 +27,7 @@ namespace Shoprite
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Category Added Successfully");
                 Con.Close();
+                populate();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -59,6 +60,65 @@ private void populate()
             CatNameTb.Text = CatDGV.SelectedRows[0].Cells[1].Value.ToString();
             CatDescTb.Text = CatDGV.SelectedRows[0].Cells[2].Value.ToString();
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CatIdTb.Text == "")
+                {
+                    MessageBox.Show("Select The Category To Delete");
+                }
+                else
+                {
+                    Con.Open();
+                    string query = "Delete From CategoryTbl where Catd=" + CatIdTb.Text + "";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Category Deleted Successfully");
+                    Con.Close();
+                    populate();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(CatDescTb.Text =="" || CatNameTb.Text == "" || CatDescTb.Text == "")
+                {
+                    MessageBox.Show("Missing Information");
+                }
+                else
+                {
+
+                Con.Open();
+                string query = "update CategoryTbl set CatName='" + CatNameTb.Text+ "' ,CatDes='" + CatDescTb.Text + "' where Catd=" + CatIdTb.Text + "";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Category Successfully Updated");
+                Con.Close();
+                    populate();
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProductForm prod = new ProductForm();
+            prod.Show();
+            this.Hide();
         }
     }
 }
