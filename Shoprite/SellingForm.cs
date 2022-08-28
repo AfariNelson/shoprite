@@ -55,6 +55,7 @@ namespace Shoprite
         {
             ProdName.Text = ProdDGV1.SelectedRows[0].Cells[0].Value.ToString();
             ProdPrice.Text = ProdDGV1.SelectedRows[0].Cells[1].Value.ToString();
+        
         }
 
         private void CatCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,8 +82,9 @@ namespace Shoprite
             populate();
             populatebills();
             fillcombo();
+            AttendantName.Text = Form1.Attendantname;
         }
-        int flag = 0;
+      
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -96,7 +98,7 @@ namespace Shoprite
 
         private void gunaDataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            flag = 1;
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -188,6 +190,13 @@ namespace Shoprite
             sda.Fill(ds);
             ProdDGV1.DataSource = ds.Tables[0];
             Con.Close();
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 login = new Form1();
+            login.Show();
         }
     }
 }

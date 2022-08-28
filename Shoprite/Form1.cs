@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Shoprite
 {
@@ -16,6 +17,8 @@ namespace Shoprite
         {
             InitializeComponent();
         }
+        public static string Attendantname = "";
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\aferi\Documents\smarketdb.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void gunaCircleButton1_Click(object sender, EventArgs e)
         {
@@ -70,7 +73,25 @@ namespace Shoprite
                     else
 
                     {
-                        MessageBox.Show("Correct Admin Password is Required");
+                        // MessageBox.Show("Correct Admin Password is Required");
+                        Con.Open();
+                        SqlDataAdapter sda = new SqlDataAdapter("Select count(8) from AttendantTbl where AttendantName='" + usernametb.Text + "'and AttendantPass='" + passwordtb.Text + "'", Con);
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        if (dt.Rows[0][0].ToString() == "1")
+                        {
+                            Attendantname = usernametb.Text;
+                            SellingForm sell = new SellingForm();
+                            sell.Show();
+                            this.Hide();
+                            Con.Close();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong Username or Password");
+                        }
+                        Con.Close();
                     }
                     }
                 

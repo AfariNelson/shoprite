@@ -85,6 +85,7 @@
             this.passwordtb.Name = "passwordtb";
             this.passwordtb.Size = new System.Drawing.Size(191, 25);
             this.passwordtb.TabIndex = 2;
+            this.passwordtb.UseSystemPasswordChar = true;
             // 
             // Lable1
             // 
