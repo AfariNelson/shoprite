@@ -54,6 +54,8 @@ namespace Shoprite
             dt.Load(rdr);
             CatCb.ValueMember = "catName";
             CatCb.DataSource = dt;
+            CatCb1.ValueMember = "catName";
+            CatCb1.DataSource = dt;
             Con.Close();    
         }
         private void ProductForm_Load(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace Shoprite
 
         private void CatCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -170,6 +172,23 @@ namespace Shoprite
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CatCb1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "select * from ProductTbl where ProdCat = '" + CatCb1.SelectedValue.ToString()+"'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            ProdDGV.DataSource = ds.Tables[0];
+            Con.Close();
         }
     }
 }

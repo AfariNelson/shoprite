@@ -59,13 +59,28 @@ namespace Shoprite
 
         private void CatCb_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
+        }
+        private void fillcombo()
+        {
+            Con.Open();
+            SqlCommand cmd = new SqlCommand(" select CatName from CategoryTbl", Con);
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CatName", typeof(string));
+            dt.Load(rdr);
+            CatCb.ValueMember = "catName";
+            CatCb.DataSource = dt;
 
+            Con.Close();
         }
 
         private void SellingForm_Load(object sender, EventArgs e)
         {
             populate();
             populatebills();
+            fillcombo();
         }
         int flag = 0;
 
@@ -151,7 +166,7 @@ namespace Shoprite
             e.Graphics.DrawString("Attendant Name:" + BillsDGV.SelectedRows[0].Cells[1].Value.ToString(), new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Blue, new Point(100, 100));
             e.Graphics.DrawString("Date:" + BillsDGV.SelectedRows[0].Cells[2].Value.ToString(), new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Blue, new Point(100, 130));
             e.Graphics.DrawString("Total Amount:" + BillsDGV.SelectedRows[0].Cells[3].Value.ToString(), new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Blue, new Point(100, 160));
-            e.Graphics.DrawString("CodeSpace", new Font("Century Gothic", 20, FontStyle.Italic), Brushes.Red, new Point(320,320));
+            e.Graphics.DrawString("CodeSpace", new Font("Century Gothic", 20, FontStyle.Italic), Brushes.Red, new Point(360,320));
 
         }
 
@@ -161,6 +176,18 @@ namespace Shoprite
             {
                 printDocument1.Print();
             }
+        }
+
+        private void CatCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "select ProdName, ProdQty from ProductTbl where ProdCat='" + CatCb.SelectedValue.ToString() + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            ProdDGV1.DataSource = ds.Tables[0];
+            Con.Close();
         }
     }
 }
