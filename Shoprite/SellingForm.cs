@@ -78,7 +78,7 @@ namespace Shoprite
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int n = 0, total = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
+            int n = 0;
             int Grdtotal = 0;
             DataGridViewRow newRow = new DataGridViewRow();
             newRow.CreateCells(OrderDGV);
@@ -88,6 +88,7 @@ namespace Shoprite
             newRow.Cells[3].Value = ProdQty.Text;
             newRow.Cells[4].Value = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
             OrderDGV.Rows.Add(newRow);
+            int total = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
             Grdtotal = Grdtotal + total;
             Amtlbl.Text = "GHc" + Grdtotal;
 
