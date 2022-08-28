@@ -29,6 +29,17 @@ namespace Shoprite
             ProdDGV1.DataSource = ds.Tables[0];
             Con.Close();
         }
+        private void populatebills()
+        {
+            Con.Open();
+            string query = "select * from BillTbl";
+            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            BillsDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
 
         private void ProductId_TextChanged(object sender, EventArgs e)
         {
@@ -54,7 +65,9 @@ namespace Shoprite
         private void SellingForm_Load(object sender, EventArgs e)
         {
             populate();
+            populatebills();
         }
+        int flag = 0;
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -68,18 +81,49 @@ namespace Shoprite
 
         private void gunaDataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            flag = 1;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+           if(BillID.Text == "")
+            {
+                MessageBox.Show("Missing Bill ID");
+            }
+            else
+            {
+
+            try
+            {
+                Con.Open();
+                String query = "insert into BillTbl values(" + BillID.Text + ",'" + AttendantName.Text + "','" + Datelbl.Text + "' , '" + Amtlbl.Text +  "')";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Order Added Successfully");
+                Con.Close();
+                populatebills();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         }
+        int Grdtotal = 0;
+        int n = 0;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int n = 0;
-            int Grdtotal = 0;
+            if (ProdName.Text == "" || ProdQty.Text == "")
+            {
+                MessageBox.Show("Input Quantity");
+            }
+            else
+            { 
+           
+            int total = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
             DataGridViewRow newRow = new DataGridViewRow();
             newRow.CreateCells(OrderDGV);
             newRow.Cells[0].Value = n + 1;
@@ -88,15 +132,35 @@ namespace Shoprite
             newRow.Cells[3].Value = ProdQty.Text;
             newRow.Cells[4].Value = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
             OrderDGV.Rows.Add(newRow);
-            int total = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
+            n++;
             Grdtotal = Grdtotal + total;
-            Amtlbl.Text = "GHc" + Grdtotal;
+            Amtlbl.Text = "" + Grdtotal;
+            }
 
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("SHOPTRITE" ,new Font("Century Gothic", 25, FontStyle.Bold), Brushes.Red, new Point(320));
+            e.Graphics.DrawString("Bill ID:" + BillsDGV.SelectedRows[0].Cells[0].Value.ToString(), new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Blue, new Point(100,70));
+            e.Graphics.DrawString("Attendant Name:" + BillsDGV.SelectedRows[0].Cells[1].Value.ToString(), new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Blue, new Point(100, 100));
+            e.Graphics.DrawString("Date:" + BillsDGV.SelectedRows[0].Cells[2].Value.ToString(), new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Blue, new Point(100, 130));
+            e.Graphics.DrawString("Total Amount:" + BillsDGV.SelectedRows[0].Cells[3].Value.ToString(), new Font("Century Gothic", 20, FontStyle.Bold), Brushes.Blue, new Point(100, 160));
+            e.Graphics.DrawString("CodeSpace", new Font("Century Gothic", 20, FontStyle.Italic), Brushes.Red, new Point(320,320));
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
         }
     }
 }
