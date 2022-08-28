@@ -31,3 +31,4 @@ C:\Users\aferi\source\repos\shoprites\shoprite\Shoprite\bin\Debug\Shoprite.exe.c
 C:\Users\aferi\source\repos\shoprites\shoprite\Shoprite\bin\Debug\Shoprite.exe
 C:\Users\aferi\source\repos\shoprites\shoprite\Shoprite\bin\Debug\Shoprite.pdb
 C:\Users\aferi\source\repos\shoprites\shoprite\Shoprite\obj\Debug\Shoprite.csproj.CopyComplete
+C:\Users\aferi\source\repos\shoprites\shoprite\Shoprite\obj\Debug\Shoprite.SellingForm.resources
