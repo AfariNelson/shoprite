@@ -120,5 +120,19 @@ private void populate()
             prod.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AttendantForm login = new AttendantForm();
+            login.Show();
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 login = new Form1();
+            login.Show();
+        }
     }
 }

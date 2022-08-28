@@ -190,5 +190,19 @@ namespace Shoprite
             ProdDGV.DataSource = ds.Tables[0];
             Con.Close();
         }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 login = new Form1();
+            login.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AttendantForm login = new AttendantForm();
+            login.Show();
+        }
     }
 }
