@@ -63,7 +63,8 @@ which helps in generating the updated reports very effectively. <br />
 can also create a user of type administrator or a normal employee. <br />
 <h3> Category Management:</h3>
 The administrator can add new categories and input new products into the system <br />
-## CONCLUSION
+
+<h2> CONCLUSION</h2>
 Any system created for a specific organisation must be flexible enough to adapt to that organisation, and cooperation is essential during the deployment phase.
 To address the issues with traditional stock management on a wide scale, "Shop Inventory Management" was created. Online application access across all products from a single place, a reduction in manual effort, the storing of data at a secured central location, and speedy report generating according to our specifications are advantages over traditional manual methods.
 
