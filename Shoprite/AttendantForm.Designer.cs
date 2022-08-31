@@ -363,7 +363,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AttendantForm";
             this.Text = "AttendantForm";
             this.Load += new System.EventHandler(this.AttendantForm_Load);
