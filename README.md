@@ -37,6 +37,8 @@ LogIn Page <br />
 <img src= "https://user-images.githubusercontent.com/86963897/187432124-bd76543a-b3fe-4e12-8688-95613788d3cb.png"> <br />
 Manage Products Page for Administrator Edits<br />
 <img src= "https://user-images.githubusercontent.com/86963897/187432147-667d663c-84e7-45a9-9aed-0d6832d8197e.png" width="500" height="350"> <br />
+Manage Categories Page for Administrator Edits<br />
+<img src= "https://user-images.githubusercontent.com/86963897/187691356-186ae6fd-fd61-442d-9370-b2bcf73f52a6.png" width="500" height="350"> <br />
 Manage Attendants Page for Administrator Edits <br />
 <img src= "https://user-images.githubusercontent.com/86963897/187432168-32241635-b4b7-46fd-8578-25a5f6106ee5.png" width="500" height="350"> <br />
 Selling Page for Attendants <br />
